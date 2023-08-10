@@ -81,3 +81,10 @@ main {
 .length-input > input {
   width: 100%;
 }
+
+.conditions-wrapper {
+  margin-block-start: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -16,8 +16,9 @@
   --color-white: hsl(0, 100%, 100%);
   --color-dark-900: hsl(248, 15%, 11%);
   --color-dark-700: hsl(248, 10%, 15%);
-  --color-gray-900: hsl(251, 9%, 53%);
-  --color-gray-100: hsl(252, 11%, 91%);
+  --color-gray-900: hsl(252, 10%, 50%);
+  --color-gray-500: hsl(252, 10%, 70%);
+  --color-gray-100: hsl(252, 10%, 90%);
   --color-green: hsl(127, 100%, 82%);
 
   --text-heading-large: calc(32 / 16 * 1rem);
@@ -29,6 +30,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+* {
+  margin: 0;
 }
 
 body {
@@ -43,29 +48,6 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-p {
-  margin: 0;
 }
 
 @media (prefers-color-scheme: light) {

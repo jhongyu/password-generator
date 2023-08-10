@@ -1,0 +1,39 @@
+.condition-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .checkbox-root {
+    --line: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--line);
+    height: var(--line);
+    border: 2px solid var(--color-gray-100);
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--color-green);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-gray-500);
+      outline: none;
+    }
+
+    .checkbox-indicator {
+      width: var(--line);
+      height: var(--line);
+      background-color: var(--color-green);
+    }
+  }
+
+  .label {
+    font-size: var(--text-body-medium);
+    cursor: pointer;
+  }
+}
