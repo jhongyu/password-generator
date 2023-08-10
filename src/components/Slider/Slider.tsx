@@ -1,5 +1,5 @@
 import * as SliderComponent from '@radix-ui/react-slider';
-import './Slider.css';
+import classes from './Slider.module.scss';
 
 interface SliderProps {
   value: number[];
@@ -11,16 +11,16 @@ interface SliderProps {
 function Slider({ value, onChange, min, max }: SliderProps) {
   return (
     <SliderComponent.Root
-      className="slider-root"
+      className={classes.sliderRoot}
       value={value}
       onValueChange={onChange}
       min={min}
       max={max}
     >
-      <SliderComponent.Track className="slider-track">
-        <SliderComponent.Range className="slider-range" />
+      <SliderComponent.Track className={classes.sliderTrack}>
+        <SliderComponent.Range className={classes.sliderRange} />
       </SliderComponent.Track>
-      <SliderComponent.Thumb className="slider-thumb" />
+      <SliderComponent.Thumb className={classes.sliderThumb} />
     </SliderComponent.Root>
   );
 }
