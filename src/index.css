@@ -25,6 +25,12 @@
   --text-body-medium: calc(18 / 16 * 1rem);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
