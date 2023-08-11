@@ -1,0 +1,22 @@
+.copy-wrapper {
+  display: flex;
+  gap: 8px;
+
+  .info,
+  .copy.success {
+    color: var(--color-green);
+  }
+
+  .copy {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    color: var(--color-white);
+
+    &:hover {
+      color: var(--color-green);
+    }
+  }
+}

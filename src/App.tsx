@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Copy, ArrowRight } from 'react-feather';
+import { ArrowRight } from 'react-feather';
 import Slider from './components/Slider';
 import ConditionItem from './components/ConditionItem';
+import Copy from './components/Copy';
 import generatePassword from './utils/generatePassword';
 import './App.css';
 
@@ -52,7 +53,7 @@ function App() {
       <div className="result">
         <div className="password-wrapper">
           <p className="password">{password}</p>
-          <Copy className="copy" />
+          <Copy password={password} />
         </div>
       </div>
       <div className="generator-wrapper">

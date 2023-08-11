@@ -38,15 +38,6 @@ main {
   color: var(--color-white);
 }
 
-.copy {
-  cursor: pointer;
-  color: var(--color-white);
-}
-
-.copy:hover {
-  color: var(--color-green);
-}
-
 .generator-wrapper {
   margin-block-start: 12px;
   padding: 16px;
