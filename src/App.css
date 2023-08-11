@@ -54,6 +54,9 @@ main {
   background-color: var(--color-dark-700);
   font-size: var(--text-body-medium);
   color: var(--color-gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .length-wrapper {
@@ -83,8 +86,26 @@ main {
 }
 
 .conditions-wrapper {
-  margin-block-start: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.generate {
+  width: 100%;
+  background-color: var(--color-green);
+  padding: 0;
+  border: 1px solid var(--color-green);
+  color: var(--color-dark-700);
+  min-height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.generate:hover {
+  background-color: transparent;
+  color: var(--color-green);
 }

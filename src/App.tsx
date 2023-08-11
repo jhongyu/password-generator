@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Copy } from 'react-feather';
+import { Copy, ArrowRight } from 'react-feather';
 import Slider from './components/Slider';
 import ConditionItem from './components/ConditionItem';
+import generatePassword from './utils/generatePassword';
 import './App.css';
 
 type ConditionId = 'uppercase' | 'lowercase' | 'number' | 'symbol';
@@ -29,9 +30,13 @@ const conditions: Condition[] = [
 ];
 
 function App() {
-  const [passwordGenerated, setPasswordGenerated] = useState(false);
+  const [password, setPassword] = useState(() => {
+    return generatePassword(8, ['lowercase']);
+  });
   const [passwordLength, setPasswordLength] = useState([8]);
-  const [selectedCondition, setSelectedCondition] = useState<ConditionId[]>([]);
+  const [selectedCondition, setSelectedCondition] = useState<ConditionId[]>([
+    'lowercase',
+  ]);
 
   const handleChange = (selected: boolean, id: ConditionId) => {
     if (selected && !selectedCondition.includes(id)) {
@@ -46,10 +51,8 @@ function App() {
       <p className="title">Password Generator</p>
       <div className="result">
         <div className="password-wrapper">
-          <p className={`password ${passwordGenerated ? 'active' : ''}`}>
-            12345678
-          </p>
-          <Copy className="copy" onClick={() => setPasswordGenerated(true)} />
+          <p className="password">{password}</p>
+          <Copy className="copy" />
         </div>
       </div>
       <div className="generator-wrapper">
@@ -78,6 +81,19 @@ function App() {
               {value}
             </ConditionItem>
           ))}
+        </div>
+        <div className="actions-wrapper">
+          <button
+            className="generate"
+            onClick={() =>
+              setPassword(
+                generatePassword(passwordLength[0], selectedCondition)
+              )
+            }
+          >
+            GENERATE
+            <ArrowRight size={12} />
+          </button>
         </div>
       </div>
     </main>

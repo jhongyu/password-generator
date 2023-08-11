@@ -27,14 +27,9 @@
     background-color: var(--color-gray-100);
     border-radius: 50%;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: var(--color-dark-700);
       border: 3px solid var(--color-green);
-    }
-
-    &:focus {
-      outline: none;
     }
   }
 }

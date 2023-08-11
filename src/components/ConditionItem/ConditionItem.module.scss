@@ -20,15 +20,11 @@
       border-color: var(--color-green);
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px var(--color-gray-500);
-      outline: none;
-    }
-
     .checkbox-indicator {
       width: var(--line);
       height: var(--line);
       background-color: var(--color-green);
+      color: var(--color-dark-900);
     }
   }
 
