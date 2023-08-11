@@ -1,12 +1,11 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 main {
-  min-width: 540px;
+  width: min(540px, 90vw);
 }
 
 .title {
@@ -32,6 +31,9 @@ main {
 .password {
   font-size: var(--text-heading-large);
   color: var(--color-gray-100);
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .password.active {
@@ -39,7 +41,7 @@ main {
 }
 
 .generator-wrapper {
-  margin-block-start: 12px;
+  margin-block-start: 20px;
   padding: 16px;
   padding-inline-start: 20px;
   background-color: var(--color-dark-700);

@@ -52,7 +52,9 @@ function App() {
       <p className="title">Password Generator</p>
       <div className="result">
         <div className="password-wrapper">
-          <p className="password">{password}</p>
+          <p className="password" title={password}>
+            {password}
+          </p>
           <Copy password={password} />
         </div>
       </div>
