@@ -13,10 +13,10 @@
     background-color: transparent;
     border: 0;
     padding: 0;
-    color: var(--color-white);
+    color: var(--color-green);
 
-    &:hover {
-      color: var(--color-green);
+    &:not(.success):hover {
+      color: var(--color-white);
     }
   }
 }

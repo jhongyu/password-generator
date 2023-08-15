@@ -32,10 +32,10 @@ const conditions: Condition[] = [
   },
 ];
 
+const initialPassword = generatePassword(8, ['lowercase']);
+
 function App() {
-  const [password, setPassword] = useState(() => {
-    return generatePassword(8, ['lowercase']);
-  });
+  const [password, setPassword] = useState('');
   const [passwordLength, setPasswordLength] = useState([8]);
   const [selectedCondition, setSelectedCondition] = useState<ConditionId[]>([
     'lowercase',
@@ -64,8 +64,11 @@ function App() {
       <p className="title">Password Generator</p>
       <div className="result">
         <div className="password-wrapper">
-          <p className="password" title={password}>
-            {password}
+          <p
+            className={`password ${password ? 'active' : ''}`}
+            title={password}
+          >
+            {password || initialPassword}
           </p>
           <Copy password={password} />
         </div>

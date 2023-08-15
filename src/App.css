@@ -31,13 +31,14 @@ main {
 .password {
   font-size: var(--text-heading-large);
   color: var(--color-gray-100);
+  opacity: 0.25;
   max-width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .password.active {
-  color: var(--color-white);
+  opacity: 1;
 }
 
 .generator-wrapper {
