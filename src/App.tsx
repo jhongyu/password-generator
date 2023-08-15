@@ -3,7 +3,9 @@ import { ArrowRight } from 'react-feather';
 import Slider from './components/Slider';
 import ConditionItem from './components/ConditionItem';
 import Copy from './components/Copy';
+import PasswordStrength from './components/PasswordStrength';
 import generatePassword from './utils/generatePassword';
+import checkPasswordStrength from './utils/checkPasswordStrength';
 import './App.css';
 
 type ConditionId = 'uppercase' | 'lowercase' | 'number' | 'symbol';
@@ -38,13 +40,23 @@ function App() {
   const [selectedCondition, setSelectedCondition] = useState<ConditionId[]>([
     'lowercase',
   ]);
+  const [passwordStrength, setPasswordStrength] = useState(-1);
 
-  const handleChange = (selected: boolean, id: ConditionId) => {
+  const handleConditionChange = (selected: boolean, id: ConditionId) => {
     if (selected && !selectedCondition.includes(id)) {
       setSelectedCondition([...selectedCondition, id]);
     } else if (!selected && selectedCondition.includes(id)) {
       setSelectedCondition(selectedCondition.filter((item) => item !== id));
     }
+  };
+
+  const handleGeneratePassword = () => {
+    const generatedPassword = generatePassword(
+      passwordLength[0],
+      selectedCondition
+    );
+    setPassword(generatedPassword);
+    setPasswordStrength(checkPasswordStrength(generatedPassword));
   };
 
   return (
@@ -79,21 +91,15 @@ function App() {
               key={id}
               id={id}
               selected={selectedCondition.includes(id)}
-              onChange={(selected) => handleChange(selected, id)}
+              onChange={(selected) => handleConditionChange(selected, id)}
             >
               {value}
             </ConditionItem>
           ))}
         </div>
+        <PasswordStrength level={passwordStrength} />
         <div className="actions-wrapper">
-          <button
-            className="generate"
-            onClick={() =>
-              setPassword(
-                generatePassword(passwordLength[0], selectedCondition)
-              )
-            }
-          >
+          <button className="generate" onClick={() => handleGeneratePassword()}>
             GENERATE
             <ArrowRight size={12} />
           </button>

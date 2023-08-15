@@ -20,6 +20,9 @@
   --color-gray-900: hsl(252, 10%, 50%);
   --color-gray-500: hsl(252, 10%, 70%);
   --color-gray-100: hsl(252, 10%, 90%);
+  --color-red: hsl(0, 91%, 63%);
+  --color-orange: hsl(13, 95%, 66%);
+  --color-yellow: hsl(42, 91%, 68%);
   --color-green: hsl(127, 100%, 82%);
 
   --text-heading-large: calc(32 / 16 * 1rem);
