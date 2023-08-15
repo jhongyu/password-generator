@@ -83,7 +83,7 @@ function App() {
             <Slider
               value={passwordLength}
               onChange={(value) => setPasswordLength(value)}
-              min={8}
+              min={6}
               max={30}
             />
           </div>
