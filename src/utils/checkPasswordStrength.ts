@@ -1,19 +1,22 @@
-const strongPasswordReg = new RegExp(
-  '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})'
-);
-const mediumPasswordReg = new RegExp(
-  '((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))'
-);
-const weakPasswordReg = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.{6,})');
+import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core';
+import type { OptionsType } from '@zxcvbn-ts/core';
+import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common';
+import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en';
 
-export default function checkPasswordStrength(password: string) {
-  if (strongPasswordReg.test(password)) {
-    return 3;
-  } else if (mediumPasswordReg.test(password)) {
-    return 2;
-  } else if (weakPasswordReg.test(password)) {
-    return 1;
-  } else {
-    return 0;
-  }
+const options: OptionsType = {
+  dictionary: {
+    ...zxcvbnCommonPackage.dictionary,
+    ...zxcvbnEnPackage.dictionary,
+  },
+  graphs: zxcvbnCommonPackage.adjacencyGraphs,
+  useLevenshteinDistance: true,
+};
+zxcvbnOptions.setOptions(options);
+
+function checkPasswordStrength(password: string) {
+  const result = zxcvbn(password);
+  const score = result.score - 1;
+  return score >= 0 ? score : 0;
 }
+
+export default checkPasswordStrength;
