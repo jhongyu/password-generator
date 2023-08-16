@@ -46,7 +46,12 @@ function App() {
     if (selected && !selectedCondition.includes(id)) {
       setSelectedCondition([...selectedCondition, id]);
     } else if (!selected && selectedCondition.includes(id)) {
-      setSelectedCondition(selectedCondition.filter((item) => item !== id));
+      const filteredCondition = selectedCondition.filter((item) => item !== id);
+
+      if (filteredCondition.length === 0) {
+        filteredCondition.push('lowercase');
+      }
+      setSelectedCondition(filteredCondition);
     }
   };
 
