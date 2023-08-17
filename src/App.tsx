@@ -75,7 +75,7 @@ function App() {
           >
             {password || initialPassword}
           </p>
-          <Copy password={password} />
+          <Copy password={password || initialPassword} />
         </div>
       </div>
       <div className="generator-wrapper">
